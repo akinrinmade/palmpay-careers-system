@@ -1,0 +1,593 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>PalmPay Careers | Explore Opportunities</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #fbfbf8;
+    --surface: #ffffff;
+    --surface-alt: #fffdf3;
+    --text: #1c1c18;
+    --muted: #67675d;
+    --line: #ece8d6;
+    --line-strong: #e1d79a;
+    --brand: #ffd43b;
+    --brand-deep: #f3c400;
+    --brand-soft: #fff4bf;
+    --dark: #121212;
+    --success: #1f7a45;
+    --shadow: 0 12px 32px rgba(18,18,18,.06);
+    --radius-xl: 28px;
+    --radius-lg: 20px;
+    --radius-md: 14px;
+    --max: 1240px;
+  }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    margin: 0;
+    font-family: Inter, system-ui, sans-serif;
+    background:
+      radial-gradient(circle at top right, rgba(255,212,59,.18), transparent 30%),
+      linear-gradient(180deg, #fffef8 0%, #fbfbf8 60%, #f8f8f3 100%);
+    color: var(--text);
+  }
+  a { color: inherit; text-decoration: none; }
+  .wrap { width: min(var(--max), calc(100% - 32px)); margin: 0 auto; }
+  .topbar {
+    position: sticky; top: 0; z-index: 50;
+    backdrop-filter: blur(14px);
+    background: rgba(255,255,255,.84);
+    border-bottom: 1px solid rgba(236,232,214,.9);
+  }
+  .nav {
+    height: 76px; display:flex; align-items:center; justify-content:space-between; gap: 20px;
+  }
+  .logo {
+    display:flex; align-items:center; gap:14px; font-weight:800; letter-spacing:-.03em; font-size: 1.08rem;
+  }
+  .logo-badge {
+    width: 42px; height: 42px; border-radius: 14px;
+    background: linear-gradient(135deg, var(--brand), #ffe985);
+    display:grid; place-items:center; font-weight:800;
+    box-shadow: inset 0 1px 0 rgba(255,255,255,.65);
+  }
+  .navlinks { display:flex; gap: 28px; color: var(--muted); font-size: .95rem; }
+  .navlinks a:hover { color: var(--text); }
+  .navcta {
+    display:inline-flex; align-items:center; gap:10px; padding: 12px 16px;
+    border:1px solid var(--line); border-radius: 999px; background: var(--surface);
+    font-weight: 600;
+  }
+
+  .hero {
+    padding: 42px 0 26px;
+  }
+  .hero-panel {
+    position: relative;
+    overflow: hidden;
+    border: 1px solid var(--line);
+    border-radius: 32px;
+    background:
+      linear-gradient(135deg, rgba(255,212,59,.92), rgba(255,241,170,.96));
+    box-shadow: var(--shadow);
+  }
+  .hero-grid {
+    display:grid; grid-template-columns: 1.25fr .75fr; gap: 26px; align-items: stretch;
+    padding: 44px;
+  }
+  .eyebrow {
+    display:inline-flex; align-items:center; gap:8px;
+    padding: 8px 12px; border-radius:999px;
+    background: rgba(255,255,255,.52);
+    border:1px solid rgba(255,255,255,.5);
+    font-size:.82rem; font-weight:700;
+  }
+  h1 {
+    margin: 16px 0 14px; font-size: clamp(2.25rem, 5.2vw, 4.3rem);
+    line-height: .98; letter-spacing:-.06em; max-width: 9.5ch;
+  }
+  .hero p {
+    margin: 0; max-width: 61ch; color: rgba(18,18,18,.72); font-size: 1.05rem; line-height: 1.68;
+  }
+  .searchbar {
+    margin-top: 28px;
+    display:flex; align-items:center; gap:12px;
+    background: rgba(255,255,255,.88);
+    border:1px solid rgba(255,255,255,.7);
+    border-radius: 18px; padding: 12px 14px 12px 16px;
+    box-shadow: 0 10px 24px rgba(18,18,18,.06);
+    max-width: 760px;
+  }
+  .searchbar input {
+    border:none; background:transparent; outline:none; width:100%;
+    font: inherit; font-size: 1rem; color: var(--text);
+  }
+  .searchbar button {
+    border:none; background: var(--dark); color:white; font: inherit; font-weight:700;
+    padding: 12px 18px; border-radius: 14px; cursor:pointer;
+  }
+  .hero-aside {
+    background: rgba(255,255,255,.42);
+    border: 1px solid rgba(255,255,255,.55);
+    border-radius: 24px; padding: 22px;
+    display:grid; gap: 16px; align-content: start;
+  }
+  .aside-kicker { color: rgba(18,18,18,.65); font-size:.9rem; font-weight:600; }
+  .stat-grid { display:grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+  .stat {
+    background: rgba(255,255,255,.84); border:1px solid rgba(255,255,255,.7);
+    border-radius: 18px; padding: 18px 16px;
+  }
+  .stat b { display:block; font-size:1.55rem; letter-spacing:-.04em; }
+  .stat span { color: var(--muted); font-size:.88rem; }
+  .aside-note {
+    padding: 16px; border-radius: 18px; background: rgba(18,18,18,.05); color: rgba(18,18,18,.72);
+    line-height:1.6; font-size:.95rem;
+  }
+
+  .main-grid {
+    display:grid; grid-template-columns: 280px minmax(0,1fr); gap: 24px;
+    padding: 26px 0 52px;
+  }
+  .sidebar, .content-shell {
+    background: rgba(255,255,255,.82);
+    border:1px solid var(--line); border-radius: 24px;
+    box-shadow: var(--shadow);
+  }
+  .sidebar {
+    position: sticky; top: 96px; align-self: start; padding: 22px;
+  }
+  .sidebar h3, .content-head h3 {
+    margin: 0 0 6px; font-size: 1rem; letter-spacing:-.03em;
+  }
+  .sidebar p {
+    margin:0 0 18px; color: var(--muted); font-size: .92rem; line-height: 1.55;
+  }
+  .control-block + .control-block { margin-top: 18px; }
+  .control-label {
+    font-size: .8rem; text-transform: uppercase; letter-spacing: .08em; color: var(--muted);
+    margin-bottom: 10px; font-weight: 700;
+  }
+  select {
+    width: 100%; padding: 13px 14px; border-radius: 14px;
+    border:1px solid var(--line); background: var(--surface); font: inherit; color: var(--text);
+    outline:none;
+  }
+  .quick-filters { display:flex; flex-wrap:wrap; gap:8px; }
+  .pill {
+    border:none; cursor:pointer; border-radius:999px; padding: 10px 12px;
+    background: #f6f4ea; color: #5f5d50; font: inherit; font-size:.88rem; font-weight:600;
+  }
+  .pill.active { background: var(--brand); color: var(--dark); }
+  .reset {
+    width:100%; margin-top: 18px; border:none; cursor:pointer;
+    padding: 13px 14px; border-radius: 14px; background: var(--dark); color: white; font: inherit; font-weight:700;
+  }
+
+  .content-shell { padding: 22px; }
+  .content-head {
+    display:flex; align-items:flex-start; justify-content:space-between; gap:14px;
+    margin-bottom: 12px;
+  }
+  .content-head p { margin: 5px 0 0; color: var(--muted); }
+  .chips { display:flex; flex-wrap:wrap; gap:8px; margin: 12px 0 18px; }
+  .chip {
+    display:inline-flex; align-items:center; gap:8px; background: var(--brand-soft);
+    border:1px solid var(--line-strong); border-radius:999px; padding: 8px 12px;
+    font-size:.86rem; font-weight:700;
+  }
+  .chip button {
+    border:none; background:transparent; cursor:pointer; font-size:1rem; line-height:1; padding:0;
+  }
+  .summary-bar {
+    display:flex; flex-wrap:wrap; gap:12px; align-items:center; justify-content:space-between;
+    background: var(--surface-alt); border:1px solid var(--line); border-radius: 18px; padding: 14px 16px; margin-bottom: 18px;
+  }
+  .summary-meta { color: var(--muted); font-size:.93rem; }
+  .country-block + .country-block { margin-top: 22px; }
+  .country-head {
+    display:flex; align-items:center; justify-content:space-between; gap: 10px; margin-bottom: 12px;
+  }
+  .country-name {
+    display:flex; align-items:center; gap:12px; font-size: 1.08rem; font-weight:800; letter-spacing:-.03em;
+  }
+  .count-badge {
+    padding: 8px 10px; border-radius: 999px; background: #f7f6ef; border:1px solid var(--line); color: var(--muted); font-size:.84rem; font-weight:700;
+  }
+  .jobs-grid {
+    display:grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap: 14px;
+  }
+  .job-card {
+    background: linear-gradient(180deg, rgba(255,255,255,1), rgba(255,253,244,1));
+    border: 1px solid var(--line);
+    border-radius: 22px; padding: 18px;
+    transition: transform .18s ease, box-shadow .18s ease, border-color .18s ease;
+  }
+  .job-card:hover {
+    transform: translateY(-2px);
+    border-color: #dccf85;
+    box-shadow: 0 14px 30px rgba(18,18,18,.08);
+  }
+  .job-top {
+    display:flex; gap:12px; align-items:flex-start; justify-content:space-between;
+  }
+  .job-title {
+    margin: 0; font-size: 1rem; line-height:1.4; letter-spacing:-.02em;
+  }
+  .dept {
+    white-space:nowrap; padding: 8px 10px; border-radius: 999px; background: #fff7d6; border:1px solid #eedb72;
+    font-size:.78rem; font-weight:700; color:#695600;
+  }
+  .job-meta {
+    display:flex; flex-wrap:wrap; gap:8px; margin-top: 14px;
+  }
+  .meta-pill {
+    padding: 8px 10px; border-radius: 999px; background: #f7f6ef; border:1px solid var(--line);
+    font-size:.82rem; color:#555448; font-weight:600;
+  }
+  .locations {
+    margin-top: 14px; padding: 14px; border-radius: 16px; background: rgba(255,255,255,.72); border:1px dashed var(--line-strong);
+  }
+  .locations strong { display:block; margin-bottom:8px; font-size:.88rem; }
+  .location-list { display:flex; flex-wrap:wrap; gap:8px; }
+  .location-item {
+    padding: 7px 10px; border-radius:999px; background:#fff; border:1px solid var(--line); font-size:.8rem; color:#535247;
+  }
+  .card-actions {
+    margin-top: 16px; display:flex; align-items:center; justify-content:space-between; gap:12px;
+  }
+  .subtle { color: var(--muted); font-size:.84rem; }
+  .apply {
+    display:inline-flex; align-items:center; gap:10px; padding: 12px 14px;
+    border-radius: 14px; background: var(--dark); color: white; font-weight:700;
+  }
+  .empty {
+    display:none; text-align:center; padding: 54px 18px; border:1px dashed var(--line-strong); border-radius: 22px; background: #fffdf3;
+  }
+  .empty.show { display:block; }
+  .empty h4 { margin:0 0 8px; font-size:1.1rem; }
+  .empty p { margin:0; color: var(--muted); }
+  footer {
+    padding: 22px 0 48px; color: var(--muted); font-size: .92rem;
+  }
+  .foot {
+    background: rgba(255,255,255,.72); border:1px solid var(--line); border-radius: 24px; padding: 18px 20px;
+    display:flex; justify-content:space-between; gap:20px; flex-wrap:wrap;
+  }
+  @media (max-width: 1080px) {
+    .hero-grid, .main-grid { grid-template-columns: 1fr; }
+    .sidebar { position: static; }
+  }
+  @media (max-width: 760px) {
+    .wrap { width: min(var(--max), calc(100% - 20px)); }
+    .nav { height:auto; padding: 14px 0; flex-wrap:wrap; }
+    .navlinks { gap:16px; flex-wrap:wrap; font-size: .9rem; }
+    .hero-grid { padding: 24px; }
+    .jobs-grid { grid-template-columns: 1fr; }
+    .searchbar { flex-wrap:wrap; }
+    .searchbar button { width:100%; justify-content:center; }
+  }
+</style>
+</head>
+<body>
+  <header class="topbar">
+    <div class="wrap nav">
+      <div class="logo">
+        <div class="logo-badge">P</div>
+        <div>PalmPay Careers</div>
+      </div>
+      <nav class="navlinks" aria-label="Primary">
+        <a href="#">Company</a>
+        <a href="#">Personal</a>
+        <a href="#">Business</a>
+        <a href="#">Impact</a>
+        <a href="#">Newsroom</a>
+      </nav>
+      <a class="navcta" href="#jobs">Open roles</a>
+    </div>
+  </header>
+
+  <section class="hero">
+    <div class="wrap hero-panel">
+      <div class="hero-grid">
+        <div>
+          <div class="eyebrow">⚡ PalmPay global opportunities</div>
+          <h1>Find the right role, faster.</h1>
+          <p>Explore openings by country, team, and keyword through a cleaner, more scalable careers experience that feels aligned with PalmPay’s main brand style.</p>
+          <div class="searchbar">
+            <span>🔎</span>
+            <input id="searchInput" type="text" placeholder="Search roles, locations, departments, or countries">
+            <button type="button" onclick="focusJobs()">Search jobs</button>
+          </div>
+        </div>
+        <aside class="hero-aside">
+          <div class="aside-kicker">Snapshot</div>
+          <div class="stat-grid">
+            <div class="stat"><b id="statRoles">0</b><span>published roles</span></div>
+            <div class="stat"><b id="statCountries">0</b><span>countries</span></div>
+            <div class="stat"><b id="statDepartments">0</b><span>functions</span></div>
+            <div class="stat"><b id="statMerged">0</b><span>merged listings</span></div>
+          </div>
+          <div class="aside-note">
+            Designed to reduce clutter, surface relevant jobs faster, and preserve a more premium, trust-led PalmPay experience.
+          </div>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <main class="wrap main-grid" id="jobs">
+    <aside class="sidebar">
+      <h3>Refine your search</h3>
+      <p>Filter roles with a structure that scales better than a single long list.</p>
+
+      <div class="control-block">
+        <div class="control-label">Country</div>
+        <select id="countrySelect">
+          <option value="all">All countries</option>
+        </select>
+      </div>
+
+      <div class="control-block">
+        <div class="control-label">Department</div>
+        <select id="deptSelect">
+          <option value="all">All functions</option>
+        </select>
+      </div>
+
+      <div class="control-block">
+        <div class="control-label">Popular filters</div>
+        <div class="quick-filters" id="quickFilters"></div>
+      </div>
+
+      <button class="reset" type="button" onclick="resetFilters()">Reset all filters</button>
+    </aside>
+
+    <section class="content-shell">
+      <div class="content-head">
+        <div>
+          <h3>Open positions</h3>
+          <p>Structured by country, deduplicated by role, and optimized for easier discovery.</p>
+        </div>
+      </div>
+
+      <div class="chips" id="chips"></div>
+
+      <div class="summary-bar">
+        <div><strong id="visibleCount">0</strong> roles currently visible</div>
+        <div class="summary-meta" id="summaryMeta">Showing all published opportunities</div>
+      </div>
+
+      <div id="emptyState" class="empty">
+        <h4>No roles match these filters</h4>
+        <p>Try clearing a filter or searching with a broader keyword.</p>
+      </div>
+
+      <div id="results"></div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap foot">
+      <div>Careers experience concept aligned to PalmPay’s brighter, trust-first corporate web style.</div>
+      <div>© 2026 PalmPay Careers Concept</div>
+    </div>
+  </footer>
+
+<script>
+const JOBS = [{"title": "Business Developer – Pay with Transfer", "location": "Lagos, Nigeria", "country": "Nigeria", "dept": "Business Dev", "url": "https://palmpaylimited.applytojob.com/apply/2OyRAsmTSc/Business-Developer-Pay-With-Transfer"}, {"title": "Business Developer – Pay with Transfer", "location": "Rivers / Port Harcourt, Nigeria", "country": "Nigeria", "dept": "Business Dev", "url": "https://palmpaylimited.applytojob.com/apply/ZdZvcm9JVP/Business-Developer-Pay-With-Transfer"}, {"title": "Sales Agents", "location": "Port Harcourt, Rivers, Nigeria", "country": "Nigeria", "dept": "Sales", "url": "https://palmpaylimited.applytojob.com/apply/a8HWY9moP3/Sales-Agents"}, {"title": "Sales Agents", "location": "Port Harcourt, Rivers, Nigeria", "country": "Nigeria", "dept": "Sales", "url": "https://palmpaylimited.applytojob.com/apply/apMGf4rRwn/Sales-Agents"}, {"title": "Sales Promoters – Port Harcourt", "location": "Port Harcourt, Rivers, Nigeria", "country": "Nigeria", "dept": "Sales", "url": "https://palmpaylimited.applytojob.com/apply/GmGwo8AN93/Sales-Promoters"}, {"title": "Sales Promoters – South East States", "location": "Abia / Imo / Anambra / Ebonyi / Enugu, Nigeria", "country": "Nigeria", "dept": "Sales", "url": "https://palmpaylimited.applytojob.com/apply/vjxMp13J7f/Sales-Promoters"}, {"title": "Sales Promoters – Abuja", "location": "Abuja, Nigeria", "country": "Nigeria", "dept": "Sales", "url": "https://palmpaylimited.applytojob.com/apply/mzpXDSVpdT/Sales-Promoters-Abuja"}, {"title": "Sales Promoters – Ibadan", "location": "Ibadan, Oyo, Nigeria", "country": "Nigeria", "dept": "Sales", "url": "https://palmpaylimited.applytojob.com/apply/RC39ITY5yY/Sales-Promoters-Ibadan"}, {"title": "Sales Promoters – Ogun", "location": "Ogun, Nigeria", "country": "Nigeria", "dept": "Sales", "url": "https://palmpaylimited.applytojob.com/apply/nup4iLvBjw/Sales-Promoters-Ogun"}, {"title": "Administrative Specialist", "location": "Lagos, Nigeria", "country": "Nigeria", "dept": "Operations", "url": "https://palmpaylimited.applytojob.com/apply/Ng3QazgtIx/Administrative-Specialist"}, {"title": "Data Product Specialist", "location": "Lagos, Nigeria", "country": "Nigeria", "dept": "Technology", "url": "https://palmpaylimited.applytojob.com/apply/mIVOg6lAS0/Data-Product-Specialist"}, {"title": "Aggregator Operations Specialist", "location": "Lagos, Nigeria", "country": "Nigeria", "dept": "Operations", "url": "https://palmpaylimited.applytojob.com/apply/XafgXelRUr/Aggregator-Operations-Specialist"}, {"title": "Key Account Operation", "location": "Lagos, Nigeria", "country": "Nigeria", "dept": "Operations", "url": "https://palmpaylimited.applytojob.com/apply/rW4InP5A6V/Key-Account-Operation"}, {"title": "Merchant Operation Manager", "location": "Lagos, Nigeria", "country": "Nigeria", "dept": "Operations", "url": "https://palmpaylimited.applytojob.com/apply/tP1EKK2dpG/Merchant-Operation-Manager"}, {"title": "Policy Operation Specialist", "location": "Lagos, Nigeria", "country": "Nigeria", "dept": "Operations", "url": "https://palmpaylimited.applytojob.com/apply/bJlS0WVJuZ/Policy-Operation-Specialist"}, {"title": "Field Collection Supervisor", "location": "Lagos, Nigeria", "country": "Nigeria", "dept": "Collections", "url": "https://palmpaylimited.applytojob.com/apply/TsiDooCnBg/Field-Collection-Supervisor"}, {"title": "Area Sales Manager (Bulacan)", "location": "Bulacan, Philippines", "country": "Philippines", "dept": "Sales", "url": "https://palmpaylimited.applytojob.com/apply/GWXpl2ToBl/Area-Sales-Manager-Bulacan"}, {"title": "Area Sales Manager (Laguna & Batangas)", "location": "Laguna / Batangas, Philippines", "country": "Philippines", "dept": "Sales", "url": "https://palmpaylimited.applytojob.com/apply/ORedLBdW4x/Area-Sales-Manager-Laguna-And-Batangas"}, {"title": "Area Sales Manager (Nueva Ecija & Aurora)", "location": "Nueva Ecija / Aurora, Philippines", "country": "Philippines", "dept": "Sales", "url": "https://palmpaylimited.applytojob.com/apply/ohTrefLiLK/Area-Sales-Manager-Nueva-Ecija-And-Aurora"}, {"title": "Area Sales Manager (Pampanga & Tarlac)", "location": "Pampanga / Tarlac, Philippines", "country": "Philippines", "dept": "Sales", "url": "https://palmpaylimited.applytojob.com/apply/my2j8sNobu/Area-Sales-Manager-Pampanga-And-Tarlac"}, {"title": "Area Sales Manager (Zambales & Bataan)", "location": "Zambales / Bataan, Philippines", "country": "Philippines", "dept": "Sales", "url": "https://palmpaylimited.applytojob.com/apply/QwyW9Rscuz/Area-Sales-Manager-Zambales-And-Bataan"}, {"title": "Business Development Manager", "location": "BGC, Taguig, Philippines", "country": "Philippines", "dept": "Business Dev", "url": "https://palmpaylimited.applytojob.com/apply/hQ2uTTLbi1/Business-Development-Manager"}, {"title": "Business Development Manager / Officer (Strategic Growth)", "location": "BGC, Taguig, Philippines", "country": "Philippines", "dept": "Business Dev", "url": "https://palmpaylimited.applytojob.com/apply/axH52SafJA/Business-Development-ManagerOfficer-Strategic-Growth"}, {"title": "Financial Institution Banking Officer", "location": "BGC, Taguig, Philippines", "country": "Philippines", "dept": "Finance", "url": "https://palmpaylimited.applytojob.com/apply/AK9Kn8K51w/Financial-Institution-Banking-Officer"}, {"title": "FIB – Financial Institution Banking Officer", "location": "BGC, Taguig, Philippines", "country": "Philippines", "dept": "Finance", "url": "https://palmpaylimited.applytojob.com/apply/TmlCOm6dah/FIB-Financial-Institution-Banking-Officer"}, {"title": "Head of Credit Risk (Mobile Financing / Consumer Durables)", "location": "Philippines", "country": "Philippines", "dept": "Collections", "url": "https://palmpaylimited.applytojob.com/apply/KuiGgsQFrR/Head-Of-Credit-Risk-Mobile-FinancingConsumer-Durables"}, {"title": "Regional Risk Manager", "location": "Philippines", "country": "Philippines", "dept": "Collections", "url": "https://palmpaylimited.applytojob.com/apply/R1uNWIq7KK/Regional-Risk-Manager-Philippines"}, {"title": "Collections Agent", "location": "Ortigas / Pasig / Makati, Philippines", "country": "Philippines", "dept": "Collections", "url": "https://palmpaylimited.applytojob.com/apply/UD86NJTARt/Collections-Agent"}, {"title": "Account Payables & Finance Ops Associate", "location": "BGC, Taguig, Philippines", "country": "Philippines", "dept": "Finance", "url": "https://palmpaylimited.applytojob.com/apply/MfCxz886KA/Account-Payables-And-Finance-Ops-Associate"}, {"title": "Accounts Payable & Finance Operations Associate", "location": "BGC, Taguig, Philippines", "country": "Philippines", "dept": "Finance", "url": "https://palmpaylimited.applytojob.com/apply/PVQ3IBd1Ao/Accounts-Payable-Finance-Operations-Associate"}, {"title": "Vendor Billing & Reconciliation Specialist", "location": "BGC, Taguig, Philippines", "country": "Philippines", "dept": "Finance", "url": "https://palmpaylimited.applytojob.com/apply/mfH7GZLWbd/Vendor-Billing-And-Reconciliation-Specialist"}, {"title": "Admin Specialist / Admin Supervisor", "location": "BGC, Taguig, Philippines", "country": "Philippines", "dept": "Operations", "url": "https://palmpaylimited.applytojob.com/apply/29McTdPcYE/Admin-Specialist-Admin-Supervisor"}, {"title": "Admin Specialist / Supervisor", "location": "BGC, Taguig, Philippines", "country": "Philippines", "dept": "Operations", "url": "https://palmpaylimited.applytojob.com/apply/juFcyif377/Admin-Specialist-Supervisor"}, {"title": "HR Specialist / HR Supervisor (General HR)", "location": "BGC, Taguig, Philippines", "country": "Philippines", "dept": "HR & People", "url": "https://palmpaylimited.applytojob.com/apply/eqFoBZ27pI/HR-Specialist-HR-Supervisor-General-HR"}, {"title": "HR Supervisor – Compensation & Benefits / Total Rewards", "location": "BGC, Taguig, Philippines", "country": "Philippines", "dept": "HR & People", "url": "https://palmpaylimited.applytojob.com/apply/myMsjJUL73/HR-Supervisor-Compensation-And-BenefitsTotal-Rewards"}, {"title": "HR Business Partner (Collections Segment)", "location": "BGC, Taguig, Philippines", "country": "Philippines", "dept": "HR & People", "url": "https://palmpaylimited.applytojob.com/apply/8UsqY1SeJQ/HR-Business-Partner-Collections-Segment"}, {"title": "Talent Acquisition Specialist", "location": "BGC, Taguig, Philippines", "country": "Philippines", "dept": "HR & People", "url": "https://palmpaylimited.applytojob.com/apply/8u7MhEdGSf/Talent-Acquisition-Specialist"}, {"title": "Talent Acquisition Specialist – Junior", "location": "BGC, Taguig, Philippines", "country": "Philippines", "dept": "HR & People", "url": "https://palmpaylimited.applytojob.com/apply/fNGYWiWzpp/Talent-Acquisition-Specialist-Junior"}, {"title": "Recruitment / TA Specialist", "location": "BGC, Taguig, Philippines", "country": "Philippines", "dept": "HR & People", "url": "https://palmpaylimited.applytojob.com/apply/nb31GwoiZk/RecruitmentTA-Specialist"}, {"title": "Senior Software Engineer (Java & Spring Boot)", "location": "Dhaka, Bangladesh", "country": "Bangladesh", "dept": "Technology", "url": "https://palmpaylimited.applytojob.com/apply/KpByHdVmN7/Senior-Software-Engineer-Java-Spring-Boot"}, {"title": "Software Engineer", "location": "Dhaka, Bangladesh", "country": "Bangladesh", "dept": "Technology", "url": "https://palmpaylimited.applytojob.com/apply/OsFoi3TvU2/Software-Engineer"}, {"title": "Test Engineer", "location": "Dhaka, Bangladesh", "country": "Bangladesh", "dept": "Technology", "url": "https://palmpaylimited.applytojob.com/apply/9xZ5haY9km/Test-Engineer"}, {"title": "Manager – MFI Management & Co-Operation", "location": "Gulshan-1, Dhaka, Bangladesh", "country": "Bangladesh", "dept": "Business Dev", "url": "https://palmpaylimited.applytojob.com/apply/qHbD91cCTM/Manager-MFI-Management-CoOperation"}, {"title": "Government Relations Manager", "location": "Dhaka, Bangladesh", "country": "Bangladesh", "dept": "Operations", "url": "https://palmpaylimited.applytojob.com/apply/zoNTyfzfS8/Government-Relations-Manager"}, {"title": "Assistant Director – Fund", "location": "Lahore, Pakistan", "country": "Pakistan", "dept": "Finance", "url": "https://palmpaylimited.applytojob.com/apply/qCL6kXn73Z/Assistant-Director-Fund"}];
+
+const countryMeta = {
+  "Nigeria":"🇳🇬",
+  "Philippines":"🇵🇭",
+  "Bangladesh":"🇧🇩",
+  "Pakistan":"🇵🇰"
+};
+
+const active = {
+  search: "",
+  country: "all",
+  dept: "all"
+};
+
+function normalizeTitle(title) {
+  return title
+    .toLowerCase()
+    .replace(/[–—-]/g, " ")
+    .replace(/\([^)]*\)/g, "")
+    .replace(/[^a-z0-9\s]/g, "")
+    .replace(/\b(junior|senior|specialist|supervisor|officer)\b/g, m => m)
+    .replace(/\s+/g, " ")
+    .trim();
+}
+
+function groupJobs(list) {
+  const map = new Map();
+  for (const job of list) {
+    const key = `${job.country}__${job.dept}__${normalizeTitle(job.title)}`;
+    if (!map.has(key)) {
+      map.set(key, {
+        title: job.title,
+        country: job.country,
+        dept: job.dept,
+        urls: [job.url],
+        locations: [job.location],
+        variants: [job]
+      });
+    } else {
+      const entry = map.get(key);
+      if (!entry.locations.includes(job.location)) entry.locations.push(job.location);
+      if (!entry.urls.includes(job.url)) entry.urls.push(job.url);
+      entry.variants.push(job);
+      if (job.title.length > entry.title.length) entry.title = job.title;
+    }
+  }
+  return [...map.values()].sort((a,b) => a.title.localeCompare(b.title));
+}
+
+const groupedAll = groupJobs(JOBS);
+
+const countries = [...new Set(JOBS.map(j => j.country))].sort();
+const depts = [...new Set(JOBS.map(j => j.dept))].sort();
+
+document.getElementById("statRoles").textContent = groupedAll.length;
+document.getElementById("statCountries").textContent = countries.length;
+document.getElementById("statDepartments").textContent = depts.length;
+document.getElementById("statMerged").textContent = JOBS.length - groupedAll.length;
+
+const countrySelect = document.getElementById("countrySelect");
+const deptSelect = document.getElementById("deptSelect");
+countries.forEach(c => countrySelect.insertAdjacentHTML("beforeend", `<option value="${c}">${c}</option>`));
+depts.forEach(d => deptSelect.insertAdjacentHTML("beforeend", `<option value="${d}">${d}</option>`));
+
+countrySelect.addEventListener("change", e => {
+  active.country = e.target.value;
+  render();
+});
+deptSelect.addEventListener("change", e => {
+  active.dept = e.target.value;
+  render();
+});
+document.getElementById("searchInput").addEventListener("input", e => {
+  active.search = e.target.value.trim();
+  render();
+});
+
+const quickTargets = ["Nigeria","Operations","Sales","Finance","Technology","Business Dev"];
+const quickWrap = document.getElementById("quickFilters");
+quickTargets.forEach(item => {
+  const isCountry = countries.includes(item);
+  const btn = document.createElement("button");
+  btn.className = "pill";
+  btn.textContent = item;
+  btn.type = "button";
+  btn.onclick = () => {
+    if (isCountry) {
+      active.country = item;
+      countrySelect.value = item;
+    } else {
+      active.dept = item;
+      deptSelect.value = item;
+    }
+    render();
+  };
+  quickWrap.appendChild(btn);
+});
+
+function focusJobs() {
+  document.getElementById("jobs").scrollIntoView({behavior:"smooth", block:"start"});
+}
+
+function resetFilters() {
+  active.search = "";
+  active.country = "all";
+  active.dept = "all";
+  document.getElementById("searchInput").value = "";
+  countrySelect.value = "all";
+  deptSelect.value = "all";
+  render();
+}
+
+function removeChip(type) {
+  active[type] = type === "search" ? "" : "all";
+  if (type === "search") document.getElementById("searchInput").value = "";
+  if (type === "country") countrySelect.value = "all";
+  if (type === "dept") deptSelect.value = "all";
+  render();
+}
+
+function renderChips() {
+  const chips = document.getElementById("chips");
+  chips.innerHTML = "";
+  if (active.country !== "all") chips.insertAdjacentHTML("beforeend", `<div class="chip">${countryMeta[active.country] || "🌍"} ${active.country} <button onclick="removeChip('country')">×</button></div>`);
+  if (active.dept !== "all") chips.insertAdjacentHTML("beforeend", `<div class="chip">${active.dept} <button onclick="removeChip('dept')">×</button></div>`);
+  if (active.search) chips.insertAdjacentHTML("beforeend", `<div class="chip">“${active.search}” <button onclick="removeChip('search')">×</button></div>`);
+}
+
+function render() {
+  renderChips();
+
+  document.querySelectorAll(".quick-filters .pill").forEach(btn => {
+    const label = btn.textContent;
+    const on = active.country === label || active.dept === label;
+    btn.classList.toggle("active", on);
+  });
+
+  const q = active.search.toLowerCase();
+  let filtered = groupedAll.filter(job => {
+    const matchesCountry = active.country === "all" || job.country === active.country;
+    const matchesDept = active.dept === "all" || job.dept === active.dept;
+    const haystack = [job.title, job.country, job.dept, ...job.locations].join(" ").toLowerCase();
+    const matchesSearch = !q || haystack.includes(q);
+    return matchesCountry && matchesDept && matchesSearch;
+  });
+
+  const visibleCount = document.getElementById("visibleCount");
+  visibleCount.textContent = filtered.length;
+
+  const summaryBits = [];
+  if (active.country !== "all") summaryBits.push(active.country);
+  if (active.dept !== "all") summaryBits.push(active.dept);
+  if (active.search) summaryBits.push(`keyword: "${active.search}"`);
+  document.getElementById("summaryMeta").textContent = summaryBits.length ? `Filtered by ${summaryBits.join(" · ")}` : "Showing all published opportunities";
+
+  const results = document.getElementById("results");
+  const empty = document.getElementById("emptyState");
+  results.innerHTML = "";
+  empty.classList.toggle("show", filtered.length === 0);
+  if (!filtered.length) return;
+
+  const byCountry = new Map();
+  filtered.forEach(job => {
+    if (!byCountry.has(job.country)) byCountry.set(job.country, []);
+    byCountry.get(job.country).push(job);
+  });
+
+  [...byCountry.entries()].forEach(([country, jobs]) => {
+    const block = document.createElement("section");
+    block.className = "country-block";
+    block.innerHTML = `
+      <div class="country-head">
+        <div class="country-name"><span>${countryMeta[country] || "🌍"}</span><span>${country}</span></div>
+        <div class="count-badge">${jobs.length} role${jobs.length === 1 ? "" : "s"}</div>
+      </div>
+      <div class="jobs-grid">
+        ${jobs.map(job => `
+          <article class="job-card">
+            <div class="job-top">
+              <h4 class="job-title">${job.title}</h4>
+              <div class="dept">${job.dept}</div>
+            </div>
+            <div class="job-meta">
+              <span class="meta-pill">${countryMeta[job.country] || "🌍"} ${job.country}</span>
+              <span class="meta-pill">${job.locations.length} location${job.locations.length === 1 ? "" : "s"}</span>
+              <span class="meta-pill">${job.variants.length} listing${job.variants.length === 1 ? "" : "s"} merged</span>
+            </div>
+            <div class="locations">
+              <strong>Available in</strong>
+              <div class="location-list">
+                ${job.locations.map(loc => `<span class="location-item">📍 ${loc}</span>`).join("")}
+              </div>
+            </div>
+            <div class="card-actions">
+              <span class="subtle">Cleaner display, original destination preserved</span>
+              <a class="apply" href="${job.urls[0]}" target="_blank" rel="noopener">Apply now →</a>
+            </div>
+          </article>
+        `).join("")}
+      </div>
+    `;
+    results.appendChild(block);
+  });
+}
+
+render();
+</script>
+</body>
+</html>
