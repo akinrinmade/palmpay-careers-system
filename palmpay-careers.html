@@ -1,0 +1,490 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1" />
+  <title>PalmPay | Careers — Build the Future of Finance in Africa</title>
+  <meta name="description" content="Join PalmPay and help shape financial inclusion across Africa. Explore open roles in engineering, product, design, operations and more." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,600;1,9..144,300&display=swap" rel="stylesheet" />
+
+  <style>
+    :root {
+      --green:       #0BBF58;
+      --green-dark:  #09A34C;
+      --green-light: #E6F9EE;
+      --green-mid:   #C7F0D8;
+      --black:       #0D1117;
+      --charcoal:    #1E2530;
+      --slate:       #4A5568;
+      --muted:       #8A94A6;
+      --border:      #E8ECF2;
+      --white:       #FFFFFF;
+      --off-white:   #F7F9FC;
+      --font-body:   'Plus Jakarta Sans', sans-serif;
+      --font-display:'Fraunces', serif;
+      --radius:      12px;
+      --radius-lg:   20px;
+      --shadow-sm:   0 1px 3px rgba(0,0,0,.06), 0 1px 2px rgba(0,0,0,.04);
+      --shadow-md:   0 4px 16px rgba(0,0,0,.08);
+      --shadow-lg:   0 12px 40px rgba(0,0,0,.12);
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body { font-family: var(--font-body); color: var(--black); background: var(--white); line-height: 1.6; -webkit-font-smoothing: antialiased; }
+    a { text-decoration: none; color: inherit; }
+    img { max-width: 100%; display: block; }
+    button { cursor: pointer; font-family: inherit; border: none; }
+
+    .navbar { position: sticky; top: 0; z-index: 100; background: rgba(255,255,255,0.96); backdrop-filter: blur(12px); border-bottom: 1px solid var(--border); height: 68px; display: flex; align-items: center; }
+    .navbar__inner { max-width: 1200px; margin: 0 auto; width: 100%; padding: 0 24px; display: flex; align-items: center; justify-content: space-between; }
+    .navbar__logo { display: flex; align-items: center; gap: 8px; font-weight: 800; font-size: 1.35rem; color: var(--black); letter-spacing: -0.02em; }
+    .navbar__logo-icon { width: 34px; height: 34px; background: var(--green); border-radius: 9px; display: flex; align-items: center; justify-content: center; }
+    .navbar__logo-icon svg { width: 20px; height: 20px; fill: white; }
+    .navbar__nav { display: flex; align-items: center; gap: 32px; list-style: none; }
+    .navbar__nav a { font-size: .9rem; font-weight: 500; color: var(--slate); transition: color .2s; }
+    .navbar__nav a:hover { color: var(--black); }
+    .navbar__nav a.active { color: var(--green-dark); font-weight: 600; }
+    .navbar__actions { display: flex; align-items: center; gap: 12px; }
+    .btn-ghost { font-size: .9rem; font-weight: 600; color: var(--black); padding: 8px 18px; border-radius: 8px; transition: background .2s; }
+    .btn-ghost:hover { background: var(--off-white); }
+    .btn-primary { font-size: .9rem; font-weight: 700; color: var(--white); background: var(--green); padding: 9px 20px; border-radius: 8px; transition: background .2s, transform .15s; }
+    .btn-primary:hover { background: var(--green-dark); transform: translateY(-1px); }
+    .navbar__hamburger { display: none; background: none; padding: 4px; }
+
+    .hero { background: var(--black); padding: 96px 24px 80px; overflow: hidden; position: relative; }
+    .hero__blob { position: absolute; top: -120px; right: -80px; width: 520px; height: 520px; background: radial-gradient(circle, rgba(11,191,88,.22) 0%, transparent 70%); border-radius: 50%; pointer-events: none; }
+    .hero__blob2 { position: absolute; bottom: -60px; left: 10%; width: 300px; height: 300px; background: radial-gradient(circle, rgba(11,191,88,.12) 0%, transparent 70%); border-radius: 50%; pointer-events: none; }
+    .hero__inner { max-width: 1200px; margin: 0 auto; display: flex; flex-direction: column; align-items: flex-start; position: relative; z-index: 1; }
+    .hero__badge { display: inline-flex; align-items: center; gap: 6px; background: rgba(11,191,88,.15); border: 1px solid rgba(11,191,88,.3); color: var(--green); font-size: .8rem; font-weight: 700; padding: 6px 14px; border-radius: 100px; letter-spacing: .04em; margin-bottom: 28px; animation: fadeUp .6s ease both; }
+    .hero__badge::before { content: ''; width: 7px; height: 7px; border-radius: 50%; background: var(--green); display: inline-block; animation: pulse 2s infinite; }
+    @keyframes pulse { 0%,100%{ opacity:1; transform:scale(1); } 50%{ opacity:.5; transform:scale(1.3); } }
+    .hero__headline { font-family: var(--font-display); font-size: clamp(2.8rem, 5.5vw, 4.5rem); font-weight: 600; line-height: 1.1; color: var(--white); letter-spacing: -0.02em; max-width: 720px; animation: fadeUp .6s .1s ease both; }
+    .hero__headline em { font-style: italic; color: var(--green); }
+    .hero__sub { margin-top: 20px; font-size: 1.1rem; color: rgba(255,255,255,.6); max-width: 560px; font-weight: 400; line-height: 1.65; animation: fadeUp .6s .2s ease both; }
+    .hero__stats { display: flex; gap: 48px; margin-top: 48px; animation: fadeUp .6s .3s ease both; }
+    .hero__stat-num { font-size: 2rem; font-weight: 800; color: var(--white); letter-spacing: -0.03em; }
+    .hero__stat-num span { color: var(--green); }
+    .hero__stat-label { font-size: .82rem; color: rgba(255,255,255,.45); font-weight: 500; margin-top: 2px; }
+    .hero__cta-row { display: flex; align-items: center; gap: 16px; margin-top: 44px; animation: fadeUp .6s .35s ease both; }
+    .btn-hero { font-size: 1rem; font-weight: 700; color: var(--black); background: var(--green); padding: 14px 32px; border-radius: 10px; display: inline-flex; align-items: center; gap: 8px; transition: background .2s, transform .15s, box-shadow .2s; }
+    .btn-hero:hover { background: var(--green-dark); transform: translateY(-2px); box-shadow: 0 8px 24px rgba(11,191,88,.35); }
+    .btn-hero svg { width: 18px; height: 18px; }
+    .btn-outline-hero { font-size: 1rem; font-weight: 600; color: rgba(255,255,255,.8); border: 1.5px solid rgba(255,255,255,.2); padding: 14px 28px; border-radius: 10px; transition: border-color .2s, color .2s; }
+    .btn-outline-hero:hover { border-color: rgba(255,255,255,.5); color: var(--white); }
+    @keyframes fadeUp { from { opacity:0; transform:translateY(20px); } to { opacity:1; transform:translateY(0); } }
+
+    .marquee-wrap { background: var(--green); padding: 14px 0; overflow: hidden; display: flex; align-items: center; }
+    .marquee-track { display: flex; gap: 0; white-space: nowrap; animation: marquee 28s linear infinite; }
+    .marquee-item { display: inline-flex; align-items: center; gap: 10px; font-size: .85rem; font-weight: 700; color: rgba(0,0,0,.7); padding: 0 32px; letter-spacing: .05em; text-transform: uppercase; }
+    .marquee-dot { width: 5px; height: 5px; background: rgba(0,0,0,.4); border-radius: 50%; }
+    @keyframes marquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+
+    .section { padding: 88px 24px; }
+    .section--alt { background: var(--off-white); }
+    .container { max-width: 1200px; margin: 0 auto; }
+    .section__label { font-size: .78rem; font-weight: 800; letter-spacing: .1em; text-transform: uppercase; color: var(--green-dark); margin-bottom: 12px; }
+    .section__title { font-family: var(--font-display); font-size: clamp(2rem, 3.5vw, 2.9rem); font-weight: 600; line-height: 1.18; letter-spacing: -0.02em; color: var(--black); max-width: 620px; }
+    .section__title em { font-style: italic; color: var(--green-dark); }
+    .section__sub { margin-top: 14px; font-size: 1rem; color: var(--slate); max-width: 520px; line-height: 1.65; }
+    .section__header { margin-bottom: 56px; }
+
+    .perks-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+    .perk-card { background: var(--white); border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 32px; transition: box-shadow .25s, transform .25s, border-color .25s; }
+    .perk-card:hover { box-shadow: var(--shadow-md); transform: translateY(-4px); border-color: var(--green-mid); }
+    .perk-icon { width: 48px; height: 48px; border-radius: 12px; background: var(--green-light); display: flex; align-items: center; justify-content: center; margin-bottom: 20px; font-size: 1.4rem; }
+    .perk-title { font-size: 1.05rem; font-weight: 700; color: var(--black); margin-bottom: 8px; letter-spacing: -0.01em; }
+    .perk-desc { font-size: .9rem; color: var(--slate); line-height: 1.6; }
+
+    .culture { padding: 88px 24px; background: var(--black); color: var(--white); }
+    .culture__inner { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }
+    .culture__label { color: var(--green); font-size:.78rem; font-weight:800; letter-spacing:.1em; text-transform:uppercase; margin-bottom:12px; }
+    .culture__title { font-family: var(--font-display); font-size: clamp(2rem,3vw,2.8rem); font-weight: 600; line-height: 1.18; letter-spacing:-0.02em; }
+    .culture__title em { font-style:italic; color:var(--green); }
+    .culture__body { margin-top:20px; color:rgba(255,255,255,.6); line-height:1.7; font-size:.97rem; }
+    .culture__body + .culture__body { margin-top:12px; }
+    .culture__pillars { margin-top: 40px; display: flex; flex-direction: column; gap: 16px; }
+    .culture__pillar { display: flex; align-items: flex-start; gap: 14px; }
+    .culture__pillar-icon { width: 36px; height: 36px; border-radius: 8px; background: rgba(11,191,88,.15); border: 1px solid rgba(11,191,88,.2); flex-shrink: 0; display: flex; align-items:center; justify-content:center; font-size:1rem; }
+    .culture__pillar-title { font-size:.95rem; font-weight:700; color:var(--white); }
+    .culture__pillar-desc { font-size:.85rem; color:rgba(255,255,255,.5); margin-top:2px; }
+    .culture__mosaic { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+    .culture__tile { border-radius: 12px; overflow: hidden; background: var(--charcoal); aspect-ratio: 1; display: flex; align-items: center; justify-content: center; font-size: 2.5rem; border: 1px solid rgba(255,255,255,.06); transition: transform .3s; }
+    .culture__tile:hover { transform: scale(1.04); }
+    .culture__tile--tall { aspect-ratio: .8; }
+    .culture__tile--green { background: var(--green); }
+
+    .jobs-filter { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; margin-bottom: 36px; }
+    .filter-btn { font-size: .85rem; font-weight: 600; padding: 8px 18px; border-radius: 100px; border: 1.5px solid var(--border); background: var(--white); color: var(--slate); transition: all .2s; }
+    .filter-btn:hover, .filter-btn.active { background: var(--green); border-color: var(--green); color: var(--white); }
+    .jobs-search { margin-left: auto; display: flex; align-items: center; gap: 10px; }
+    .jobs-search input { font-family: var(--font-body); font-size: .9rem; border: 1.5px solid var(--border); border-radius: 8px; padding: 9px 14px; color: var(--black); outline: none; transition: border-color .2s; width: 220px; }
+    .jobs-search input:focus { border-color: var(--green); }
+    .jobs-search input::placeholder { color: var(--muted); }
+
+    .jobs-list { display: flex; flex-direction: column; gap: 14px; }
+    .job-card { background: var(--white); border: 1.5px solid var(--border); border-radius: var(--radius-lg); padding: 26px 30px; display: flex; align-items: center; justify-content: space-between; cursor: pointer; transition: border-color .2s, box-shadow .2s, transform .2s; }
+    .job-card:hover { border-color: var(--green); box-shadow: var(--shadow-md); transform: translateX(4px); }
+    .job-card__dept { font-size: .75rem; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: var(--green-dark); margin-bottom: 6px; }
+    .job-card__title { font-size: 1.05rem; font-weight: 700; color: var(--black); letter-spacing: -0.01em; }
+    .job-card__meta { display: flex; align-items: center; gap: 16px; margin-top: 8px; }
+    .job-tag { display: inline-flex; align-items: center; gap: 5px; font-size: .78rem; font-weight: 600; color: var(--slate); }
+    .job-tag svg { width: 13px; height: 13px; opacity: .6; }
+    .job-card__arrow { width: 40px; height: 40px; border-radius: 50%; border: 1.5px solid var(--border); flex-shrink: 0; display: flex; align-items: center; justify-content: center; transition: background .2s, border-color .2s; color: var(--muted); }
+    .job-card:hover .job-card__arrow { background: var(--green); border-color: var(--green); color: var(--white); }
+    .job-card__arrow svg { width: 16px; height: 16px; }
+    .no-jobs { text-align: center; padding: 60px 24px; color: var(--muted); font-size: .95rem; }
+
+    .process-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0; position: relative; }
+    .process-grid::before { content: ''; position: absolute; top: 28px; left: calc(12.5% + 24px); right: calc(12.5% + 24px); height: 2px; background: repeating-linear-gradient(90deg, var(--green-mid) 0px, var(--green-mid) 8px, transparent 8px, transparent 16px); }
+    .process-step { display: flex; flex-direction: column; align-items: center; text-align: center; padding: 0 16px; }
+    .process-num { width: 56px; height: 56px; border-radius: 50%; background: var(--white); border: 2px solid var(--green); display: flex; align-items: center; justify-content: center; font-size: 1.1rem; font-weight: 800; color: var(--green-dark); margin-bottom: 20px; position: relative; z-index: 1; }
+    .process-step-title { font-size: .95rem; font-weight: 700; color: var(--black); margin-bottom: 8px; }
+    .process-step-desc { font-size: .84rem; color: var(--slate); line-height: 1.55; }
+
+    .testimonials-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+    .testimonial-card { background: var(--white); border: 1.5px solid var(--border); border-radius: var(--radius-lg); padding: 32px; transition: box-shadow .25s, transform .25s; }
+    .testimonial-card:hover { box-shadow: var(--shadow-md); transform: translateY(-4px); }
+    .testimonial-quote { font-family: var(--font-display); font-size: 1.05rem; font-style: italic; color: var(--black); line-height: 1.65; margin-bottom: 24px; }
+    .testimonial-quote::before { content: '\201C'; color: var(--green); font-size: 1.5rem; line-height:0; vertical-align: -.3em; margin-right: 3px; }
+    .testimonial-author { display: flex; align-items: center; gap: 12px; }
+    .testimonial-avatar { width: 42px; height: 42px; border-radius: 50%; font-size: 1.1rem; display: flex; align-items: center; justify-content: center; font-weight: 800; flex-shrink: 0; color: white; }
+    .testimonial-name { font-size: .9rem; font-weight: 700; color: var(--black); }
+    .testimonial-role { font-size: .8rem; color: var(--muted); margin-top: 1px; }
+
+    .cta-banner { background: var(--green); padding: 72px 24px; text-align: center; }
+    .cta-banner__inner { max-width: 680px; margin: 0 auto; }
+    .cta-banner__title { font-family: var(--font-display); font-size: clamp(2rem, 4vw, 3rem); font-weight: 600; color: var(--black); letter-spacing: -0.02em; line-height: 1.15; }
+    .cta-banner__sub { margin-top: 14px; font-size: 1rem; color: rgba(0,0,0,.6); line-height: 1.65; }
+    .cta-banner__actions { margin-top: 36px; display: flex; gap: 14px; justify-content: center; }
+    .btn-dark { font-size: .95rem; font-weight: 700; color: var(--white); background: var(--black); padding: 14px 30px; border-radius: 10px; transition: background .2s, transform .15s; }
+    .btn-dark:hover { background: var(--charcoal); transform: translateY(-2px); }
+    .btn-white-outline { font-size: .95rem; font-weight: 600; color: var(--black); border: 2px solid rgba(0,0,0,.25); padding: 14px 28px; border-radius: 10px; transition: border-color .2s; }
+    .btn-white-outline:hover { border-color: var(--black); }
+
+    .footer-cta-strip { background: var(--charcoal); padding: 52px 24px; }
+    .footer-cta-strip__inner { max-width: 1200px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; gap: 24px; flex-wrap: wrap; }
+    .footer-cta-strip__copy { font-size: 1.1rem; font-weight: 700; color: var(--white); }
+    .footer-cta-strip__copy span { color: var(--green); }
+    .footer-cta-strip__apps { display: flex; gap: 12px; align-items: center; }
+    .app-badge { display: flex; align-items: center; gap: 10px; background: rgba(255,255,255,.08); border: 1px solid rgba(255,255,255,.12); border-radius: 10px; padding: 10px 16px; color: var(--white); font-size: .85rem; font-weight: 600; transition: background .2s; }
+    .app-badge:hover { background: rgba(255,255,255,.14); }
+    .app-badge svg { width: 18px; height: 18px; fill: white; }
+
+    footer { background: var(--black); padding: 64px 24px 32px; }
+    .footer__inner { max-width: 1200px; margin: 0 auto; }
+    .footer__grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr 1fr; gap: 48px; padding-bottom: 48px; border-bottom: 1px solid rgba(255,255,255,.08); }
+    .footer__brand-logo { display: flex; align-items: center; gap: 8px; font-weight: 800; font-size: 1.2rem; color: var(--white); letter-spacing: -0.02em; }
+    .footer__brand-logo-icon { width: 30px; height: 30px; background: var(--green); border-radius: 7px; display: flex; align-items: center; justify-content: center; }
+    .footer__brand-logo-icon svg { width: 16px; height: 16px; fill: white; }
+    .footer__brand-desc { margin-top: 14px; font-size: .85rem; color: rgba(255,255,255,.4); line-height: 1.65; max-width: 260px; }
+    .footer__compliance { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 20px; }
+    .compliance-badge { font-size: .7rem; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; color: rgba(255,255,255,.35); border: 1px solid rgba(255,255,255,.1); border-radius: 6px; padding: 4px 8px; }
+    .footer__col-title { font-size: .8rem; font-weight: 800; text-transform: uppercase; letter-spacing: .08em; color: rgba(255,255,255,.35); margin-bottom: 18px; }
+    .footer__col-links { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+    .footer__col-links a { font-size: .88rem; color: rgba(255,255,255,.5); transition: color .2s; }
+    .footer__col-links a:hover { color: var(--white); }
+    .footer__bottom { padding-top: 28px; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 16px; }
+    .footer__copyright { font-size: .82rem; color: rgba(255,255,255,.25); }
+    .footer__social { display: flex; gap: 12px; }
+    .footer__social a { width: 34px; height: 34px; border-radius: 50%; border: 1px solid rgba(255,255,255,.12); display: flex; align-items: center; justify-content: center; color: rgba(255,255,255,.4); font-size: .8rem; transition: border-color .2s, color .2s; font-weight: 700; }
+    .footer__social a:hover { border-color: var(--green); color: var(--green); }
+
+    @media(max-width: 900px) { .navbar__nav, .navbar__actions .btn-ghost { display: none; } .navbar__hamburger { display: block; } }
+    @media(max-width: 768px) { .perks-grid, .testimonials-grid { grid-template-columns: 1fr; } .culture__inner { grid-template-columns: 1fr; gap: 48px; } .culture__mosaic { display: none; } .process-grid { grid-template-columns: 1fr 1fr; } .process-grid::before { display: none; } .footer__grid { grid-template-columns: 1fr 1fr; } .hero__stats { gap: 28px; } .jobs-filter { justify-content: flex-start; } .jobs-search { margin-left: 0; width: 100%; } .jobs-search input { width: 100%; } }
+    @media(max-width: 480px) { .process-grid { grid-template-columns: 1fr; } .footer__grid { grid-template-columns: 1fr; } .hero__stats { flex-direction: column; gap: 16px; } .cta-banner__actions { flex-direction: column; } }
+  </style>
+</head>
+<body>
+
+<nav class="navbar">
+  <div class="navbar__inner">
+    <a href="#" class="navbar__logo">
+      <div class="navbar__logo-icon">
+        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 14H9V8h2v8zm4 0h-2V8h2v8z"/></svg>
+      </div>
+      PalmPay
+    </a>
+    <ul class="navbar__nav">
+      <li><a href="#">Company</a></li>
+      <li><a href="#">Personal</a></li>
+      <li><a href="#">Business</a></li>
+      <li><a href="#">Impact</a></li>
+      <li><a href="#" class="active">Careers</a></li>
+    </ul>
+    <div class="navbar__actions">
+      <a href="#" class="btn-ghost">Log In</a>
+      <a href="#open-roles" class="btn-primary">See Open Roles</a>
+    </div>
+    <button class="navbar__hamburger" aria-label="Menu">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+    </button>
+  </div>
+</nav>
+
+<section class="hero">
+  <div class="hero__blob"></div>
+  <div class="hero__blob2"></div>
+  <div class="hero__inner">
+    <div class="hero__badge">We're Hiring</div>
+    <h1 class="hero__headline">Build the <em>future</em> of finance across Africa</h1>
+    <p class="hero__sub">Join a team of bold builders, dreamers and doers working to bring financial access to over 40 million people — and counting.</p>
+    <div class="hero__stats">
+      <div>
+        <div class="hero__stat-num">40<span>M+</span></div>
+        <div class="hero__stat-label">Users across Africa</div>
+      </div>
+      <div>
+        <div class="hero__stat-num"><span>~</span>2,000</div>
+        <div class="hero__stat-label">Team members globally</div>
+      </div>
+      <div>
+        <div class="hero__stat-num">4<span>+</span></div>
+        <div class="hero__stat-label">Countries &amp; growing</div>
+      </div>
+    </div>
+    <div class="hero__cta-row">
+      <a href="#open-roles" class="btn-hero">
+        Explore Open Roles
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+      </a>
+      <a href="#culture" class="btn-outline-hero">Our Culture</a>
+    </div>
+  </div>
+</section>
+
+<div class="marquee-wrap" aria-hidden="true">
+  <div class="marquee-track">
+    <span class="marquee-item">Engineering <span class="marquee-dot"></span></span>
+    <span class="marquee-item">Product &amp; Design <span class="marquee-dot"></span></span>
+    <span class="marquee-item">Data Science <span class="marquee-dot"></span></span>
+    <span class="marquee-item">Risk &amp; Compliance <span class="marquee-dot"></span></span>
+    <span class="marquee-item">Customer Success <span class="marquee-dot"></span></span>
+    <span class="marquee-item">Sales &amp; Growth <span class="marquee-dot"></span></span>
+    <span class="marquee-item">Operations <span class="marquee-dot"></span></span>
+    <span class="marquee-item">Finance <span class="marquee-dot"></span></span>
+    <span class="marquee-item">Engineering <span class="marquee-dot"></span></span>
+    <span class="marquee-item">Product &amp; Design <span class="marquee-dot"></span></span>
+    <span class="marquee-item">Data Science <span class="marquee-dot"></span></span>
+    <span class="marquee-item">Risk &amp; Compliance <span class="marquee-dot"></span></span>
+    <span class="marquee-item">Customer Success <span class="marquee-dot"></span></span>
+    <span class="marquee-item">Sales &amp; Growth <span class="marquee-dot"></span></span>
+    <span class="marquee-item">Operations <span class="marquee-dot"></span></span>
+    <span class="marquee-item">Finance <span class="marquee-dot"></span></span>
+  </div>
+</div>
+
+<section class="section section--alt">
+  <div class="container">
+    <div class="section__header">
+      <div class="section__label">Why PalmPay</div>
+      <h2 class="section__title">More than a job. A <em>mission.</em></h2>
+      <p class="section__sub">We invest deeply in our people — because great work starts with a team that feels supported, challenged and valued.</p>
+    </div>
+    <div class="perks-grid">
+      <div class="perk-card"><div class="perk-icon">🌍</div><div class="perk-title">Real-world Impact</div><div class="perk-desc">Your code, designs and decisions touch the financial lives of tens of millions of Nigerians and Africans every single day.</div></div>
+      <div class="perk-card"><div class="perk-icon">🚀</div><div class="perk-title">Hyper-Growth Scale</div><div class="perk-desc">Work on systems that handle millions of transactions daily. Ship fast, learn faster, and grow your skills at a pace few companies can offer.</div></div>
+      <div class="perk-card"><div class="perk-icon">💚</div><div class="perk-title">Competitive Pay &amp; Benefits</div><div class="perk-desc">Market-leading salaries, health insurance for you and your dependants, pension contributions, and performance bonuses.</div></div>
+      <div class="perk-card"><div class="perk-icon">📚</div><div class="perk-title">Learning &amp; Development</div><div class="perk-desc">Annual learning budget, access to conferences, internal knowledge-sharing sessions, and clear growth paths across all functions.</div></div>
+      <div class="perk-card"><div class="perk-icon">🏠</div><div class="perk-title">Flexible Working</div><div class="perk-desc">Hybrid and remote options across most roles. We measure output, not hours — because trust is the foundation of great teamwork.</div></div>
+      <div class="perk-card"><div class="perk-icon">🤝</div><div class="perk-title">Diverse &amp; Inclusive Team</div><div class="perk-desc">Over 30 nationalities in one company. We celebrate different perspectives and build products for everyone — starting with our own team.</div></div>
+    </div>
+  </div>
+</section>
+
+<section class="culture" id="culture">
+  <div class="culture__inner">
+    <div>
+      <div class="culture__label">Our Culture</div>
+      <h2 class="culture__title">We move fast, stay <em>curious</em>, and care deeply.</h2>
+      <p class="culture__body">At PalmPay, you won't just execute — you'll have a seat at the table. Every team member is encouraged to challenge assumptions, propose solutions, and own their outcomes.</p>
+      <p class="culture__body">We're a flat-ish organisation where ideas win on merit, not tenure. We disagree openly, decide clearly, and move quickly.</p>
+      <div class="culture__pillars">
+        <div class="culture__pillar"><div class="culture__pillar-icon">⚡</div><div><div class="culture__pillar-title">Bias for Action</div><div class="culture__pillar-desc">We value progress over perfection and ship things that make a difference.</div></div></div>
+        <div class="culture__pillar"><div class="culture__pillar-icon">🎯</div><div><div class="culture__pillar-title">Radical Ownership</div><div class="culture__pillar-desc">No finger-pointing. If it's broken, you help fix it, regardless of whose problem it technically is.</div></div></div>
+        <div class="culture__pillar"><div class="culture__pillar-icon">🌱</div><div><div class="culture__pillar-title">Customer Obsession</div><div class="culture__pillar-desc">Our users are the reason we exist. Every decision starts by asking: does this make their lives better?</div></div></div>
+      </div>
+    </div>
+    <div class="culture__visual">
+      <div class="culture__mosaic">
+        <div class="culture__tile culture__tile--tall" style="background:#1a2235;">🎉</div>
+        <div class="culture__tile culture__tile--green">🤝</div>
+        <div class="culture__tile" style="background:#162140;">💻</div>
+        <div class="culture__tile culture__tile--tall" style="background:#1a2235;">📱</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="open-roles">
+  <div class="container">
+    <div class="section__header">
+      <div class="section__label">Open Positions</div>
+      <h2 class="section__title">Find your <em>place</em> on the team</h2>
+      <p class="section__sub">We're actively hiring across engineering, product, design and operations. Can't find the right fit? Send us a speculative application.</p>
+    </div>
+    <div class="jobs-filter" id="filter-bar">
+      <button class="filter-btn active" data-filter="all">All Roles</button>
+      <button class="filter-btn" data-filter="engineering">Engineering</button>
+      <button class="filter-btn" data-filter="product">Product &amp; Design</button>
+      <button class="filter-btn" data-filter="data">Data &amp; Analytics</button>
+      <button class="filter-btn" data-filter="operations">Operations</button>
+      <button class="filter-btn" data-filter="growth">Sales &amp; Growth</button>
+      <div class="jobs-search"><input type="text" id="job-search" placeholder="Search roles…" /></div>
+    </div>
+    <div class="jobs-list" id="jobs-list"></div>
+  </div>
+</section>
+
+<section class="section section--alt">
+  <div class="container">
+    <div class="section__header">
+      <div class="section__label">Hiring Process</div>
+      <h2 class="section__title">What to <em>expect</em> when you apply</h2>
+      <p class="section__sub">Our process is designed to be fair, transparent and respectful of your time.</p>
+    </div>
+    <div class="process-grid">
+      <div class="process-step"><div class="process-num">1</div><div class="process-step-title">Apply Online</div><div class="process-step-desc">Submit your CV and a short note on why you're excited about the role.</div></div>
+      <div class="process-step"><div class="process-num">2</div><div class="process-step-title">Recruiter Screen</div><div class="process-step-desc">A 30-minute call with our talent team to discuss your background and expectations.</div></div>
+      <div class="process-step"><div class="process-num">3</div><div class="process-step-title">Technical / Skills Round</div><div class="process-step-desc">A practical assessment tailored to your role — usually a take-home or live session.</div></div>
+      <div class="process-step"><div class="process-num">4</div><div class="process-step-title">Final Interviews &amp; Offer</div><div class="process-step-desc">Meet the team, ask all your questions, and receive a decision within 5 business days.</div></div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="section__header">
+      <div class="section__label">Life at PalmPay</div>
+      <h2 class="section__title">Heard from the <em>team</em></h2>
+    </div>
+    <div class="testimonials-grid">
+      <div class="testimonial-card"><div class="testimonial-quote">I've worked at fintechs in three continents. The speed and ownership culture here is unmatched — and the mission feels real, not just a tagline.</div><div class="testimonial-author"><div class="testimonial-avatar" style="background:#0BBF58;">AO</div><div><div class="testimonial-name">Amara Okonkwo</div><div class="testimonial-role">Senior Software Engineer · Lagos</div></div></div></div>
+      <div class="testimonial-card"><div class="testimonial-quote">I joined as a data analyst and became a lead within 18 months. PalmPay genuinely rewards people who take initiative and deliver results.</div><div class="testimonial-author"><div class="testimonial-avatar" style="background:#0ABF85;">TC</div><div><div class="testimonial-name">Taiwo Chukwu</div><div class="testimonial-role">Data Lead · Abuja</div></div></div></div>
+      <div class="testimonial-card"><div class="testimonial-quote">The best part? My work actually ships. No endless approval chains. We move fast, experiment, and learn directly from our users.</div><div class="testimonial-author"><div class="testimonial-avatar" style="background:#3B82F6;">FE</div><div><div class="testimonial-name">Fatima Ezeh</div><div class="testimonial-role">Product Manager · Remote</div></div></div></div>
+    </div>
+  </div>
+</section>
+
+<div class="cta-banner">
+  <div class="cta-banner__inner">
+    <h2 class="cta-banner__title">Don't see the right role?</h2>
+    <p class="cta-banner__sub">We're always looking for exceptional talent. Send us a speculative application and we'll reach out when the right opportunity opens up.</p>
+    <div class="cta-banner__actions">
+      <a href="mailto:careers@palmpay.com" class="btn-dark">Send Speculative Application</a>
+      <a href="#open-roles" class="btn-white-outline">Browse Open Roles</a>
+    </div>
+  </div>
+</div>
+
+<div class="footer-cta-strip">
+  <div class="footer-cta-strip__inner">
+    <div class="footer-cta-strip__copy">Join <span>40 million</span> users who love PalmPay</div>
+    <div class="footer-cta-strip__apps">
+      <a href="https://go.onelink.me/ieol/website" target="_blank" rel="noreferrer" class="app-badge">
+        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M3.18 23.76c.3.17.64.24.98.24.35 0 .7-.09 1.02-.26l10.2-5.87-2.94-2.93-9.26 8.82zm-1.15-20.7C1.75 3.38 1.5 3.78 1.5 4.27v15.46c0 .49.25.89.53 1.21l.08.07 8.66-8.66v-.2L2.11 3.5l-.08.06zm14.43 9.46L13.5 9.56l-2.83 2.83 2.96 2.96 2.83-1.64c.81-.47.81-1.22 0-1.69v.5zm-3.44 4.05L2.07 22.55c.31.19.67.27 1.02.24l.12-.07 10.4-6z"/></svg>
+        Google Play
+      </a>
+      <a href="https://go.onelink.me/ieol/website" target="_blank" rel="noreferrer" class="app-badge">
+        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98l-.09.06c-.22.15-2.19 1.28-2.17 3.83.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.75M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
+        App Store
+      </a>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <div class="footer__inner">
+    <div class="footer__grid">
+      <div>
+        <div class="footer__brand-logo"><div class="footer__brand-logo-icon"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 14H9V8h2v8zm4 0h-2V8h2v8z"/></svg></div>PalmPay</div>
+        <p class="footer__brand-desc">A financial service provided by PalmPay Limited, licensed and regulated by the Central Bank of Nigeria (CBN).</p>
+        <div class="footer__compliance">
+          <span class="compliance-badge">CBN Licensed</span>
+          <span class="compliance-badge">NDIC Insured</span>
+          <span class="compliance-badge">PCI DSS</span>
+          <span class="compliance-badge">NDPC</span>
+          <span class="compliance-badge">FCCPC</span>
+        </div>
+      </div>
+      <div><div class="footer__col-title">Personal</div><ul class="footer__col-links"><li><a href="#">PalmPay App</a></li><li><a href="#">Send &amp; Receive</a></li><li><a href="#">Bill Payment</a></li><li><a href="#">Buy &amp; Shop</a></li></ul></div>
+      <div><div class="footer__col-title">Business</div><ul class="footer__col-links"><li><a href="#">Payin</a></li><li><a href="#">Payout</a></li><li><a href="#">POS</a></li><li><a href="#">Business Account</a></li><li><a href="#">Agent Network</a></li></ul></div>
+      <div><div class="footer__col-title">Company</div><ul class="footer__col-links"><li><a href="#">About</a></li><li><a href="#">Blog</a></li><li><a href="#">Newsroom</a></li><li><a href="#" style="color:rgba(11,191,88,.7)">Careers</a></li><li><a href="#">Contact</a></li></ul></div>
+      <div><div class="footer__col-title">Legal</div><ul class="footer__col-links"><li><a href="#">Privacy Policy</a></li><li><a href="#">Terms &amp; Conditions</a></li><li><a href="#">Complaints</a></li><li><a href="#">Loan Privacy Policy</a></li></ul></div>
+    </div>
+    <div class="footer__bottom">
+      <span class="footer__copyright">© 2026 PalmPay. All rights reserved.</span>
+      <div class="footer__social">
+        <a href="https://www.instagram.com/palmpayapp_ng/" target="_blank" rel="noreferrer">IG</a>
+        <a href="https://www.facebook.com/palmpayapp.ng" target="_blank" rel="noreferrer">FB</a>
+        <a href="https://twitter.com/palmpay_ng" target="_blank" rel="noreferrer">𝕏</a>
+        <a href="https://www.linkedin.com/company/palmpay" target="_blank" rel="noreferrer">in</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+  const JOBS = [
+    { id:1,  title:"Senior Backend Engineer (Node.js)",    dept:"Engineering",      filter:"engineering", location:"Lagos, NG",      type:"Full-time", level:"Senior"     },
+    { id:2,  title:"Frontend Engineer (React)",            dept:"Engineering",      filter:"engineering", location:"Remote",         type:"Full-time", level:"Mid-Senior"  },
+    { id:3,  title:"iOS Mobile Engineer",                  dept:"Engineering",      filter:"engineering", location:"Lagos, NG",      type:"Full-time", level:"Senior"     },
+    { id:4,  title:"Android Mobile Engineer",              dept:"Engineering",      filter:"engineering", location:"Lagos, NG",      type:"Full-time", level:"Mid-Senior"  },
+    { id:5,  title:"DevOps / Platform Engineer",           dept:"Engineering",      filter:"engineering", location:"Remote",         type:"Full-time", level:"Senior"     },
+    { id:6,  title:"Product Manager — Payments",           dept:"Product & Design", filter:"product",     location:"Lagos, NG",      type:"Full-time", level:"Senior"     },
+    { id:7,  title:"UX / Product Designer",                dept:"Product & Design", filter:"product",     location:"Lagos, NG",      type:"Full-time", level:"Mid"        },
+    { id:8,  title:"Product Analyst",                      dept:"Product & Design", filter:"product",     location:"Hybrid",         type:"Full-time", level:"Mid"        },
+    { id:9,  title:"Data Engineer",                        dept:"Data & Analytics", filter:"data",        location:"Lagos, NG",      type:"Full-time", level:"Senior"     },
+    { id:10, title:"Machine Learning Engineer",            dept:"Data & Analytics", filter:"data",        location:"Remote",         type:"Full-time", level:"Senior"     },
+    { id:11, title:"Business Intelligence Analyst",        dept:"Data & Analytics", filter:"data",        location:"Abuja, NG",      type:"Full-time", level:"Mid"        },
+    { id:12, title:"Head of Risk & Compliance",            dept:"Operations",       filter:"operations",  location:"Lagos, NG",      type:"Full-time", level:"Lead"       },
+    { id:13, title:"Customer Experience Manager",          dept:"Operations",       filter:"operations",  location:"Lagos, NG",      type:"Full-time", level:"Senior"     },
+    { id:14, title:"Merchant Acquisition Manager",         dept:"Sales & Growth",   filter:"growth",      location:"Port Harcourt",  type:"Full-time", level:"Mid"        },
+    { id:15, title:"Growth Marketing Manager",             dept:"Sales & Growth",   filter:"growth",      location:"Lagos, NG",      type:"Full-time", level:"Senior"     },
+  ];
+
+  function renderJobs(list) {
+    const c = document.getElementById('jobs-list');
+    if (!list.length) {
+      c.innerHTML = '<div class="no-jobs">No roles found. <a href="mailto:careers@palmpay.com" style="color:var(--green-dark);font-weight:700;">Send a speculative application →</a></div>';
+      return;
+    }
+    c.innerHTML = list.map(j => `
+      <div class="job-card" tabindex="0">
+        <div>
+          <div class="job-card__dept">${j.dept}</div>
+          <div class="job-card__title">${j.title}</div>
+          <div class="job-card__meta">
+            <span class="job-tag"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M21 10c0 7-9 13-9 13S3 17 3 10a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>${j.location}</span>
+            <span class="job-tag"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"/></svg>${j.type}</span>
+            <span class="job-tag"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg>${j.level}</span>
+          </div>
+        </div>
+        <div class="job-card__arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></div>
+      </div>`).join('');
+  }
+
+  let activeFilter = 'all', searchTerm = '';
+  function applyFilters() {
+    renderJobs(JOBS.filter(j =>
+      (activeFilter === 'all' || j.filter === activeFilter) &&
+      (!searchTerm || j.title.toLowerCase().includes(searchTerm) || j.dept.toLowerCase().includes(searchTerm))
+    ));
+  }
+  document.querySelectorAll('.filter-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      activeFilter = btn.dataset.filter;
+      applyFilters();
+    });
+  });
+  document.getElementById('job-search').addEventListener('input', e => {
+    searchTerm = e.target.value.trim().toLowerCase();
+    applyFilters();
+  });
+  renderJobs(JOBS);
+</script>
+</body>
+</html>
